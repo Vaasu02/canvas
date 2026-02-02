@@ -1,9 +1,6 @@
 import type { ValidationResult } from '../types';
 
 export function validatePhysics(openSCADCode: string): ValidationResult {
-  // V1: Simplified validation
-  // Parse OpenSCAD code (basic analysis)
-  // Future: Parse JSCAD geometry for actual measurements
 
   // Basic checks based on code patterns
   const hasThinWalls = /cube\(\[\d+,\s*\d+,\s*[01]\.\d+\]/.test(openSCADCode);
@@ -16,7 +13,7 @@ export function validatePhysics(openSCADCode: string): ValidationResult {
     centerOfGravity: {
       x: 0,
       y: 0,
-      stable: true, // V1: assume stable, enhance with actual CoG calculation
+      stable: true, 
     },
     wallThickness: {
       min: wallThickness,

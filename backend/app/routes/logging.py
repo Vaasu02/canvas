@@ -14,14 +14,6 @@ class ErrorLogRequest(BaseModel):
 @router.post("/log/error")
 async def log_error(request: ErrorLogRequest):
     try:
-        # Go up 3 levels from app/routes/logging.py to get to project root
-        # app/routes/logging.py -> app/routes -> app -> backend -> canvas -> root (wait, that's too many)
-        # We are in backend/app/routes/logging.py (conceptually)
-        # Actually file path will be backend/app/routes/logging.py
-        
-        # Let's use relative path from where python runs (backend/)
-        # So logs are at ../logs
-        
         log_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../logs"))
         os.makedirs(log_dir, exist_ok=True)
         

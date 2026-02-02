@@ -47,7 +47,6 @@ async def generate_openscad(prompt: str, image: str = None, previous_code: str =
         types.Part.from_text(text=context_text)
     ]
 
-    # 2. Add image if provided (snapshot or new sketch)
     if image:
         try:
             # Strip data URL prefix if present
@@ -60,7 +59,6 @@ async def generate_openscad(prompt: str, image: str = None, previous_code: str =
     print(f"--- Sending request to Gemini (Multiturn) ---")
     print(f"Model Mode: {'ITERATION' if previous_code else 'NEW_DESIGN'}")
 
-    # Using the model chain defined in project specs
     models_to_try = [
         "gemini-3-pro-preview", 
         "gemini-3-flash",

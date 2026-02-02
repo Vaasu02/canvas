@@ -2,8 +2,6 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 from fastapi import Request
 
-# Simple in-memory rate limiter
-# In production, use Redis or similar
 request_counts = defaultdict(list)
 
 def check_rate_limit(
